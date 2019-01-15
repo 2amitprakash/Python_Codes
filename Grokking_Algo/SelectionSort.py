@@ -11,6 +11,7 @@ def selectionSort(arr):
 		index = findSmallestIndx(arr)
 		newArr.append(arr.pop(index))
 	return newArr
+#End of Function
 
 my_list = [1, 3, -1, 4, 0]
 print ("Original Arr: ", my_list)
