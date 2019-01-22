@@ -51,15 +51,30 @@ def compare_json_data(source_data_a,source_data_b):
     # compare a to b in recursion unless meet the base condition
     return compare(source_data_a,source_data_b)
 #End of compare
+#This function supports 3 levels of nesting
+def _getValueFromJsonFile(list, file_data):
+    if (len(list) == 1):
+        return [file_data[list[0]]]
+    if (len(list) == 2):
+        return [file_data[list[0]][i][list[1]] for i in range(0, len(file_data[list[0]]))]
+    elif (len(list) == 3):
+        return [
+                 file_data[list[0]][i][list[1]][j][list[2]]
+                 for i in range(0, len(file_data[list[0]]))
+                 for j in range(0, len(file_data[list[0]][i][list[1]]))
+               ]
+    else:
+        raise Exception("More than 3 nested levels are not supported.")
+#End of private function
 
-# Compare the 2 list based on configuration
-def compareConfigBased(lhsList, rhsList, lhsFile, rhsFile):
-    if ((len(lhsList) == 1) and (len(rhsList) == 1)):
-        return compare_json_data(lhsFile[lhsList[0]],rhsFile[rhsList[0]])
-    for l in range(len(lhsList)-1):
-        for r in range(len(rhsList)-1):
-            return False            
-
+# Compare the json data elements based on configuration
+def compareConfigBased(elemList, lhsFileData, rhsFileData):
+    if (elemList == []):
+        return False
+    return compare_json_data(
+                              _getValueFromJsonFile(elemList[0],lhsFileData),
+                              _getValueFromJsonFile(elemList[1],rhsFileData)
+                            )
 #End of Function
 
 # Test the Function        
@@ -74,15 +89,8 @@ if __name__=="__main__":
      #Get configuration fle loaded
      list = readConfig("Config.txt")
      #Compare
-     for m in range(len(list)-1):
-             elemList = list[m]
-             lhsList = elemList[0]
-             rhsList = elemList[1]
-             if (compareConfigBased (lhsList, rhsList, in_data1, in_data2)):
-                print ("Good: Values {l} and {r} matched".format(l=lhsList,r=rhsList))
-             else:   
-                print ("Error: Values {l} and {r} not matched".format(l=lhsList,r=rhsList))
-     #hardcoded example -- can be removed once working code established
-     var1="carrot"
-     list = in_data1[var1]
-     print ("Value is: {v}, and length is {l}".format(v=in_data1[var1][0]["fourth"],l=len(list)))
+     for m in range(0,len(list)):
+        if (compareConfigBased (list[m], in_data1, in_data2)):
+            print ("Good: Values {l} and {r} matched".format(l=list[m][0],r=list[m][1]))
+        else:   
+            print ("Error: Values {l} and {r} not matched".format(l=list[m][0],r=list[m][1]))

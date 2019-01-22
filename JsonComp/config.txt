@@ -1,2 +1,4 @@
 orange=orange
-carrot.fourth=carrot.fourth
+apple=pear.first
+pear.fourth.first=pear.fourth.first
+banana=bananas

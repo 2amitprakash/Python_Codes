@@ -7,17 +7,24 @@
 	"carrot": [
 		{
 			"fourth": "value-two",
-			"first": {
+			"first": [{
 				"apple": "value1",
 				"orange": "value2"
-			},
+			}],
 			"second": "value",
 			"third": "another"
 		},
-		{},
-		["One","Two","Three"]
+		{
+			"fourth": "value-one",
+			"first": [{
+				"apple": "value3",
+				"orange": "value4"
+			}],
+			"second": "value0",
+			"third": "another"
+		}
 	],
-	"pear": {
+	"pear": [{
 		"first": "value",
 		"second": "another",
 		"third": [1,2,3,"One","Two","Three"],
@@ -25,8 +32,7 @@
 			{
 				"first": "value",
 				"second": "another"
-			},
-			{}
+			}
 		]
-	}
+	}]
 }
