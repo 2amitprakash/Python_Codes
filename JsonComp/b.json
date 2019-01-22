@@ -1,7 +1,7 @@
 {
 	"apple": "value",
 	"orange": 12,
-	"banana": [1,2,3,"One","Two","Three","Fourth"],
+	"bananas": [1,2,3,"One","Two","Three","Fourth"],
 	"grape": false,
 	"strawberry": null,
 	"carrot": [
@@ -14,15 +14,8 @@
 			"second": "value",
 			"third": "another"
 		},
-		{
-			"fourth": "value-one",
-			"first": {
-				"apple": "value3",
-				"orange": "value4"
-			},
-			"second": "value0",
-			"third": "another"
-		}
+		{},
+		["One","Two","Three"]
 	],
 	"pear": {
 		"first": "value",
