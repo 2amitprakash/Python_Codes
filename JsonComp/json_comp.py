@@ -58,11 +58,27 @@ def _getValueFromJsonFile(list, file_data):
     if (len(list) == 2):
         return [file_data[list[0]][i][list[1]] for i in range(0, len(file_data[list[0]]))]
     elif (len(list) == 3):
-        return [
-                 file_data[list[0]][i][list[1]][j][list[2]]
-                 for i in range(0, len(file_data[list[0]]))
-                 for j in range(0, len(file_data[list[0]][i][list[1]]))
-               ]
+        #Check if a constant value to return then not read in JSON file
+        if (list[0] == "R"): #To handle comparison to constant/real values
+            print ("Found R and value ", list[2])
+            if (list[1] == "None"):
+                return [None]
+            elif (list[1] == "Int"):
+                return [int(list[2])]
+            elif (list[1] == "Real"):
+                return [float(list[2])]
+            elif (list[1] == "True"):
+                return [True]
+            elif (list[1] == "False"):
+                return [False]
+            else:
+                return [list[2]]
+        else:
+            return [
+                    file_data[list[0]][i][list[1]][j][list[2]]
+                    for i in range(0, len(file_data[list[0]]))
+                    for j in range(0, len(file_data[list[0]][i][list[1]]))
+                ]
     else:
         raise Exception("More than 3 nested levels are not supported.")
 #End of private function
@@ -91,6 +107,6 @@ if __name__=="__main__":
      #Compare
      for m in range(0,len(list)):
         if (compareConfigBased (list[m], in_data1, in_data2)):
-            print ("Good: Values {l} and {r} matched".format(l=list[m][0],r=list[m][1]))
+            print ("Good: Values for {l} and {r} matched".format(l=list[m][0],r=list[m][1]))
         else:   
-            print ("Error: Values {l} and {r} not matched".format(l=list[m][0],r=list[m][1]))
+            print ("Error: Values for {l} and {r} not matched".format(l=list[m][0],r=list[m][1]))

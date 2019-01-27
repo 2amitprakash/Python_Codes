@@ -1,4 +1,10 @@
 orange=orange
-apple=pear.first
+pear.first=apple
 pear.fourth.first=pear.fourth.first
 banana=bananas
+grape=grape
+# use R. construct to compare constant values
+apple=R.Str.value
+R.Int.12=orange
+grape=R.False.false
+strawberry=R.None.null
