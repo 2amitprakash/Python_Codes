@@ -1,6 +1,6 @@
 
 This code will enable to compare any 2 valid JSON files based on the linear mapping of the data elements. The mapping file will look like:
-field1.field2=ffield2.ffield1
+ifield1.ifield2=ffield2.ffield1
 
 The '.' notation is used to differentiate levels.
 
