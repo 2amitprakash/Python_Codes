@@ -1,6 +1,9 @@
 orange=orange
 pear.first=apple
 pear.fourth.first=pear.fourth.first
+pear.first=pear.fourth.first
+pear.fourth.second.coding=pear.first.coding
+item.adjudication.reason.coding=item.adjudication.reason.coding
 banana=bananas
 grape=grape
 # use R. construct to compare constant values

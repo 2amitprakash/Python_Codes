@@ -24,15 +24,41 @@
 			"third": "another"
 		}
 	],
-	"pear": [{
-		"first": "value",
-		"second": "another",
+	"pear": {
+		"first": "value1",
+		"second": "another1",
 		"third": [1,2,3,"One","Two","Three"],
 		"fourth": [
 			{
 				"first": "value",
-				"second": "another"
+				"second": {
+					"coding":"another"
+				}
 			}
 		]
-	}]
+	},
+	"item": [
+		{
+			"adjudication": [
+				{
+					"amount": {
+						"value": 97.78,
+						"currency": "USD"
+					},
+					"category": {
+						"coding": [
+							"Health Care Coverage -370"
+						],
+						"text": "Health Care Coverage -370"
+					},
+					"reason": {
+						"coding": [
+							"Random"
+						],
+						"text": "Random"
+					}
+				}
+			]
+		}
+	]	
 }
