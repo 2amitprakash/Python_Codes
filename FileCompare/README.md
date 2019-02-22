@@ -1,16 +1,6 @@
-
-# JSON Compare Utility
+# Python_Codes
 
 One Paragraph of project description goes here
-This code will enable to compare any 2 valid JSON files based on the linear mapping of the data elements. The mapping file will look like:
-ifield1.ifield2=ffield2.ffield1
-
-The '.' notation is used to differentiate levels.
-
-To compare to a constant value use 'R' notation (Check examples in config files).
-
-The typical use case is while verifying the data transfer between 2 systems or in a pipeline, this code can be used to verify the data 
-elements that may be following different names and structure as per the system design and behavior but carrying same values (same source). 
 
 ## Getting Started
 
@@ -66,6 +56,12 @@ Give an example
 
 Add additional notes about how to deploy this on a live system
 
+## Built With
+
+* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
@@ -76,7 +72,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Amit Prakash** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
@@ -86,4 +82,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Waiting for ...
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc
