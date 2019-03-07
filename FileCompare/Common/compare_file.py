@@ -1,4 +1,5 @@
 import FileCompare.Common.readCompareConfig as rc
+import FileCompare.Json.json_file_processor as jfp
 
 #Compare the elements - list or dictionary or anything else
 def compare_json_data(source_data_a,source_data_b):
@@ -48,11 +49,11 @@ def compare_json_data(source_data_a,source_data_b):
 #End of compare
 
 # Compare the data elements based on configuration and file type
-def compareConfigBased(elemList):
+def compareConfigBased(elemList, file1_list,file1_list_count,file2_list,file2_list_count):
     if (elemList == []):
         return False
-    value1 = getValueFromJsonFile(elemList[0],"lhs")
-    value2 = getValueFromJsonFile(elemList[1],"rhs")
+    value1 = jfp.getValueFromJsonFile(elemList[0],file1_list,file1_list_count)
+    value2 = jfp.getValueFromJsonFile(elemList[1],file2_list,file2_list_count)
     #print (value1, value2)
     return compare_json_data(value1,value2)
 #End of Function
@@ -62,16 +63,16 @@ def run_compare():
     file2 = "b.json"
     cfile = "Config.txt"
     #Get first file loaded
-    flat_json_1, lCount_1 = flatten_json(loadJson(file1))
+    flat_json_1, lCount_1 = jfp.flatten_json(jfp.loadJson(file1))
     #print ("Flattened JSON ----",flat_json_1)
     #print ("List of the counts ----", lCount_1)
     #Get second file loaded
-    flat_json_2, lCount_2 = flatten_json(loadJson(file2))
+    flat_json_2, lCount_2 = jfp.flatten_json(jfp.loadJson(file2))
     #Get configuration fle loaded
     lst = rc.readConfig(cfile)
     #Compare
     for m in range(0,len(lst)):
-        if (compareConfigBased (lst[m])):
+        if (compareConfigBased (lst[m],flat_json_1, lCount_1,flat_json_2, lCount_2)):
             print ("Good: Values for {l} and {r} matched".format(l=lst[m][0],r=lst[m][1]))
         else:   
             print ("Error: Values for {l} and {r} not matched".format(l=lst[m][0],r=lst[m][1]))

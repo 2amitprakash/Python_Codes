@@ -34,7 +34,7 @@ def flatten_json(nested_json):
 
 #load the JSON file
 def loadJson(filename):
-    with open(filename) as f:
+    with open(filename, "r") as f:
         return json.load(f)
 #End of function
 
