@@ -1,5 +1,5 @@
-import FileCompare.Common.readCompareConfig as rc
-import FileCompare.Json.json_file_processor as jfp
+import Common.readCompareConfig as rc
+import Json.json_file_processor as jfp
 
 #Compare the elements - list or dictionary or anything else
 def compare_json_data(source_data_a,source_data_b):
@@ -59,9 +59,9 @@ def compareConfigBased(elemList, file1_list,file1_list_count,file2_list,file2_li
 #End of Function
 
 def run_compare():
-    file1 = "a.json"
-    file2 = "b.json"
-    cfile = "Config.txt"
+    file1 = "Json/a.json"
+    file2 = "Json/b.json"
+    cfile = "Json/json_comp_config.txt"
     #Get first file loaded
     flat_json_1, lCount_1 = jfp.flatten_json(jfp.loadJson(file1))
     #print ("Flattened JSON ----",flat_json_1)
