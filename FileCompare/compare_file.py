@@ -2,7 +2,7 @@ import Common.readCompareConfig as rc
 import Json.json_file_processor as jfp
 
 #Compare the elements - list or dictionary or anything else
-def compare_json_data(source_data_a,source_data_b):
+def compare_data(source_data_a,source_data_b):
     def compare(data_a,data_b):
         # type: list
         if (isinstance(data_a, list)):
@@ -55,7 +55,7 @@ def compareConfigBased(elemList, file1_list,file1_list_count,file2_list,file2_li
     value1 = jfp.getValueFromJsonFile(elemList[0],file1_list,file1_list_count)
     value2 = jfp.getValueFromJsonFile(elemList[1],file2_list,file2_list_count)
     #print (value1, value2)
-    return compare_json_data(value1,value2)
+    return compare_data(value1,value2)
 #End of Function
 
 def run_compare():
