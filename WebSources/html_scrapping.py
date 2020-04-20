@@ -11,7 +11,7 @@ except OSError:
     pass
 
 htmlfiles = []
-for root, dirs, files in os.walk("/Users/amitprakash/Documents"):
+for root, dirs, files in os.walk("."):
     for file in files:
         if file.endswith(".html"):
             htmlfiles.append(os.path.join(root, file))
