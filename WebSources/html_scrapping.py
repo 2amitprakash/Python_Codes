@@ -3,12 +3,21 @@ import requests
 import os
 import csv
 
+#Deleting the csv file if it exists
+csvfile = "US_State_Measures.csv"
+try:
+    os.remove(csvfile)
+except OSError:
+    pass
+
 htmlfiles = []
 for root, dirs, files in os.walk("/Users/amitprakash/Documents"):
     for file in files:
         if file.endswith(".html"):
             htmlfiles.append(os.path.join(root, file))
-print ("File List : ", htmlfiles)
+#print ("File List : ", htmlfiles)
+
+#website scrape code
 #page = requests.get('https://covid19.healthdata.org/united-states-of-america/virginia')
 #tree = html.fromstring(page.content)
 #measure = tree.xpath('//*[@id="root"]/div/main/div[3]/div[1]/div[2]/div[1]/div[1]/text()')
@@ -30,11 +39,11 @@ for htmlfile in htmlfiles:
         lcsv = list(map(list, zip(*lall)))
         lrows = [[x] + y for x, y in zip(state, lcsv)]
         
-        print ("List of Measures: ", lmeasure)
-        print ("List of Values: ", lvalue)
+        #print ("List of Measures: ", lmeasure)
+        #print ("List of Values: ", lvalue)
         print ("Combined list: ", lrows)
-        print ("State: ", state[0]) 
+        #print ("State: ", state[0]) 
 
-        with open("US_State_Measures.csv", 'a', newline='') as cf:
+        with open(csvfile, 'a', newline='') as cf:
             writer = csv.writer(cf)
-            writer.writerow(lrows)
+            writer.writerows(lrows)
