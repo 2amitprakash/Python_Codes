@@ -15,18 +15,19 @@ ws['A1'] = 42
 ws.append([1, 2, 3])
  
 # Save the file
-wb.save('sample.xlsx')
+wb.save('experiments/sample.xlsx')
 
 ######### Append a file
 # Start by opening the spreadsheet and selecting the main sheet
-workbook = load_workbook(filename="hello.xlsx")
-sheet = workbook.active
+workbook = load_workbook(filename="experiments/hello.xlsx")
+workbook.create_sheet(title="My sheet 2")
+sheet = workbook["My sheet 2"]
 
 # Write what you want into a specific cell
-sheet["C10"] = "writing ;)"
+sheet["C1"] = "writing ;)"
 
 # Save the spreadsheet
-workbook.save(filename="hello.xlsx")
+workbook.save(filename="experiments/hello.xlsx")
 
 ############ Change Style
 # Create a few styles
@@ -39,10 +40,11 @@ square_border = Border(top=double_border_side,
                         bottom=double_border_side,
                         left=double_border_side)
 
+sheet = workbook["My sheet"]
 # Style some cells!
 sheet["A2"].font = bold_font
 sheet["A3"].font = big_blue_text
 sheet["A5"].border = square_border
 
 # Save the spreadsheet
-workbook.save(filename="hello.xlsx")
+workbook.save(filename="experiments/hello.xlsx")
